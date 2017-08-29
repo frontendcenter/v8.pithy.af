@@ -4,11 +4,11 @@ import {
   Route
 } from 'react-router-dom'
 
-import Nav from './Nav'
-import Home from './Home'
-import Author from './Author'
-import Work from './Work'
-import Quote from './QuotePage'
+import Nav from './components/Nav'
+import Home from './components/Home'
+import Author from './components/Author'
+import Work from './components/Work'
+import Quote from './components/QuotePage'
 
 export default () => (
   <Router>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from './Link'
 import LinkSVG from './LinkSVG'
-import { simplify } from './utils'
+import { simplify } from '../utils'
 
 const SIZES = ['s', 's', 'm', 'l', 'l']
 

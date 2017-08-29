@@ -1,6 +1,6 @@
 import React from 'react'
 import Quote from './Quote'
-import { API, simplify } from './utils'
+import { API, simplify } from '../utils'
 import End from './End'
 import Link from './Link'
 
