@@ -11,7 +11,9 @@ export class Author extends React.Component {
       .then(response => response.json())
       .then(quotes => {
         this.setState({ quotes })
-      }, () => this.setState({ error: true }))
+      }, () => {
+        this.setState({ error: true })
+      })
   }
 
   render() {

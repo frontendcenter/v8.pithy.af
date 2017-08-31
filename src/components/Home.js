@@ -11,7 +11,9 @@ export default class Home extends React.Component {
       .then(response => response.json())
       .then(quotes => {
         this.setState({ quotes })
-      }, () => this.setState({ error: true }))
+      }, () => {
+        return this.setState({ error: true })
+      })
   }
 
   render() {
