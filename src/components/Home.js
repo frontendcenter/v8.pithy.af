@@ -7,12 +7,12 @@ export default class Home extends React.Component {
   state = { quotes: null }
 
   componentWillMount() {
-    fetch(`${API}/quotes`)
+    fetch(`${API}/quotes/featured`)
       .then(response => response.json())
       .then(quotes => {
         this.setState({ quotes })
       }, () => {
-        return this.setState({ error: true })
+        this.setState({ error: true })
       })
   }
 
