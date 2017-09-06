@@ -8,6 +8,7 @@ const Link = ({ className, block, obvious, ...props }) => (
       '-block': block,
       '-obvious': obvious,
     })}
+    onClick={ () => requestAnimationFrame(() => window.scrollTo(0,0)) }
     {...props}/>
 )
 
