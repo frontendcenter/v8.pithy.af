@@ -23,7 +23,7 @@ export const getQuoteById = id => {
 
 export const getFeaturedQuotes = () => {
   if (!store.quote_lists.has('featured')) {
-    store.quote_lists.set('featured', false)
+    store.quote_lists.set('featured', null)
     fetch(`${API}/quotes/featured`)
       .then(response => response.json())
       .then(quotes => {
