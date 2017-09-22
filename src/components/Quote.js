@@ -1,15 +1,12 @@
 import React from 'react'
-import { observer } from 'mobx-react'
-
 import Link from './Link'
 import LinkSVG from './LinkSVG'
 import { simplify } from '../utils'
-import ButtonLink from './ButtonLink'
 
 const SIZES = ['s', 's', 'm', 'l', 'l']
 
-const Quote = observer(({ quote }) => {
-  const { id, short, em_index, year, name, title, author_id, work_id, score } = quote
+const Quote = ({ quote }) => {
+  const { id, short, em_index, year, name, title, author_id, work_id } = quote
   const size = SIZES[Math.floor(short.length / 100)] || 'xl'
   let em = short.substr(0, em_index)
   return (
@@ -26,24 +23,20 @@ const Quote = observer(({ quote }) => {
                 className="Quote_Attribution">{name}</Link>
         }
         <div className="Quote_Work">
-          {
-            title &&
-            <Link to={`/works/${simplify(title)}-${work_id}`}>
-              {title}
-              {year && ` (${year})`}
-            </Link>
-          }
-          <Link to={`/quote/${simplify(em)}-${id}`}>
-            <LinkSVG/>
+        {
+          title &&
+          <Link to={`/works/${simplify(title)}-${work_id}`}>
+            {title}
+            {year && ` (${year})`}
           </Link>
-          <ButtonLink onClick={() => quote.score += 1}>
-            <span role="img" aria-label="Add applause">👏</span>
-          </ButtonLink>
-          <span className="Quote_Score">({score || 0})</span>
+        }
+        <Link to={`/quote/${simplify(em)}-${id}`}>
+          <LinkSVG/>
+        </Link>
         </div>
       </div>
     </div>
-  )
-})
+  );
+}
 
 export default Quote

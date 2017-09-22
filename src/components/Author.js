@@ -2,6 +2,27 @@ import React from 'react'
 import Quote from './Quote'
 import End from './End'
 import { API } from '../utils'
+import { observable } from 'mobx'
+
+const store = observable({
+  featured_quotes: null,
+  error: false
+})
+
+let loading = false
+export const getFeaturedQuotes = () => {
+  if (!loading) {
+    loading = true
+    fetch(`${API}/authors/${this.props.id}`)
+      .then(response => response.json())
+      .then(quotes => {
+        store.featured_quotes = quotes
+      }, () => {
+        store.error = true
+      })
+  }
+  return store.featured_quotes
+}
 
 export class Author extends React.Component {
   state = { quotes: null }
