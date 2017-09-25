@@ -7,7 +7,10 @@ import ButtonLink from './ButtonLink'
 const SIZES = ['s', 's', 'm', 'l', 'l']
 
 const Quote = ({ quote }) => {
-  const { id, short, em_index, year, name, title, author_id, work_id, score } = quote
+  const {
+    id, short, em_index, year, name,
+    title, author_id, work_id, score,
+  } = quote
   const size = SIZES[Math.floor(short.length / 100)] || 'xl'
   let em = short.substr(0, em_index)
   return (
