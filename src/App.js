@@ -9,17 +9,20 @@ import Home from './components/Home'
 import Author from './components/Author'
 import Work from './components/Work'
 import Quote from './components/QuotePage'
+import ScrollToTop from './components/ScrollToTop'
 
 export default () => (
   <Router>
-    <div>
-      <Nav/>
-      <main>
-        <Route exact path="/" component={Home}/>
-        <Route path="/authors/*-:id" component={Author}/>
-        <Route path="/works/*-:id" component={Work}/>
-        <Route path="/quote/*-:id" component={Quote}/>
-      </main>
-    </div>
+    <ScrollToTop>
+      <div>
+        <Nav/>
+        <main>
+          <Route exact path="/" component={Home}/>
+          <Route path="/authors/*-:id" component={Author}/>
+          <Route path="/works/*-:id" component={Work}/>
+          <Route path="/quote/*-:id" component={Quote}/>
+        </main>
+      </div>
+    </ScrollToTop>
   </Router>
 )
