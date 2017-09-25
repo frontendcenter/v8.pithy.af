@@ -7,22 +7,22 @@ import End from './End'
 import { API } from '../utils'
 
 const store = observable({
-  featured_quotes: new Map(),
+  quotes_by_author: new Map(),
   error: false
 })
 
 export const getQuotesForAuthor = id => {
-  if (!store.featured_quotes.has(id)) {
-    store.featured_quotes.set(id, null)
+  if (!store.quotes_by_author.has(id)) {
+    store.quotes_by_author.set(id, null)
     fetch(`${API}/authors/${id}`)
       .then(response => response.json())
       .then(quotes => {
-        store.featured_quotes.set(id, quotes)
+        store.quotes_by_author.set(id, quotes)
       }, () => {
         store.error = true
       })
   }
-  return store.featured_quotes.get(id)
+  return store.quotes_by_author.get(id)
 }
 
 export const Author = observer(({ id, exclude }) => {

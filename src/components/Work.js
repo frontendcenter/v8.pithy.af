@@ -25,6 +25,7 @@ export const getQuotesForWork = id => {
   }
   return store.quotes_by_work.get(id)
 }
+
 export const Work = observer(({ id }) => {
   const quotes = getQuotesForWork(id)
 

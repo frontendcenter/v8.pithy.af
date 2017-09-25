@@ -41,4 +41,5 @@ const QuotePage = observer(({ id }) => {
   )
 })
 
-export default ({ match: { params } }) => <QuotePage key={params.id} id={params.id}/>
+export default ({ match: { params } }) =>
+  <QuotePage key={params.id} id={params.id}/>
