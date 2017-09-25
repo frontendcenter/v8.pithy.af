@@ -2,7 +2,7 @@ html {
   font-size: 16px;
 }
 
-@media (max-width: 24em) {
+@media (max-width: 30em) {
   html {
     font-size: 15px;
   }
@@ -164,6 +164,9 @@ html.wf-active .sans-serif {
 }
 
 @media (max-width: 40em) {
+  .Quote.-main {
+    padding: 7rem 3rem;
+  }
   .Quote_Short {
     font-size: 2.5rem;
   }
@@ -262,11 +265,6 @@ html.wf-active .Quote_Short em {
   margin-left: 0.5rem;
 }
 
-.Quote_Inner:hover .Quote_Links {
-  transition: opacity 0.3s 0.3s;
-  opacity: 1;
-}
-
 .Quotes:empty {
   height: 100vh;
   width: 100vw;
@@ -323,21 +321,29 @@ html.wf-active .Quote_Short em {
   font-size: inherit;
   opacity: 0.8;
   -webkit-filter: grayscale(1);
-  transition: all 0.2s;
+  transition: transform 0.06s, all 0.2s;
   cursor: pointer;
 }
 .ButtonLink:hover {
   opacity: 1.0;
   -webkit-filter: grayscale(0);
 }
+.ButtonLink:active {
+  transform: translateY(2px);
+  transition-duration: 0s;
+}
 .LinkSVG {
   width: 1rem;
   height: 1rem;
   opacity: 0.25;
-  transition: opacity 0.2s;
+  transition: transform 0.06s, all 0.2s;
 }
 .LinkSVG:hover {
   opacity: 1;
+}
+.LinkSVG:active {
+  transform: translateY(2px);
+  transition-duration: 0s;
 }
 .LinkSVG path {
   stroke: none;
