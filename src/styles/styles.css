@@ -240,11 +240,6 @@ html.wf-active .Quote_Short em {
   font-size: 1.125rem;
   opacity: 0.5;
 }
-.Quote_Score {
-  opacity: 0.8;
-  font-size: 0.8em;
-  margin-left: 0.5rem;
-}
 
 .Quote_Links {
   transition: opacity 0.1s;
@@ -261,11 +256,16 @@ html.wf-active .Quote_Short em {
   padding-right: 10px;
 }
 
+.Quote_Score {
+  opacity: 0.8;
+  font-size: 0.8em;
+  margin-left: 0.5rem;
+}
+
 .Quote_Inner:hover .Quote_Links {
   transition: opacity 0.3s 0.3s;
   opacity: 1;
 }
-
 
 .Quotes:empty {
   height: 100vh;
