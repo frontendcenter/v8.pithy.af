@@ -1,32 +1,12 @@
 import React from 'react'
-import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
 import Quote from './Quote'
 import End from './End'
-import { API } from '../utils'
-
-const store = observable({
-  quotes_by_author: new Map(),
-  error: false
-})
-
-export const getQuotesForAuthor = id => {
-  if (!store.quotes_by_author.has(id)) {
-    store.quotes_by_author.set(id, null)
-    fetch(`${API}/authors/${id}`)
-      .then(response => response.json())
-      .then(quotes => {
-        store.quotes_by_author.set(id, quotes)
-      }, () => {
-        store.error = true
-      })
-  }
-  return store.quotes_by_author.get(id)
-}
+import { getQuotesForEndpoint } from '../store'
 
 export const Author = observer(({ id, exclude }) => {
-  const quotes = getQuotesForAuthor(id)
+  const quotes = getQuotesForEndpoint(`authors/${id}`)
 
   return (
     <div className="Quotes">
