@@ -1,3 +1,3 @@
-# pithy.af (version 7)
+# pithy.af (version 8)
 
-Built for [Front End Center Episode 18—Cleaner Components with MobX & React](https://frontend.center/ep18-cleaner-components-with-mobx-and-react).
+Built for [Front End Center Episode 19—Modelling State in MobX](https://frontend.center/ep19-modelling-state-in-mobx).
