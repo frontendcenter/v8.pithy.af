@@ -1,33 +1,14 @@
 import React from 'react'
-import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
 import Quote from './Quote'
-import { API, simplify } from '../utils'
+import { simplify } from '../utils'
 import End from './End'
 import Link from './Link'
-
-const store = observable({
-  quotes_by_work: new Map(),
-  error: false
-})
-
-export const getQuotesForWork = id => {
-  if (!store.quotes_by_work.has(id)) {
-    store.quotes_by_work.set(id, null)
-    fetch(`${API}/works/${id}`)
-      .then(response => response.json())
-      .then(quotes => {
-        store.quotes_by_work.set(id, quotes)
-      }, () => {
-        store.error = true
-      })
-  }
-  return store.quotes_by_work.get(id)
-}
+import { getQuotesForEndpoint } from '../store'
 
 export const Work = observer(({ id }) => {
-  const quotes = getQuotesForWork(id)
+  const quotes = getQuotesForEndpoint(`works/${id}`)
 
   return (
     <div className="Quotes">
