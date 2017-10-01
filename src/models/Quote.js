@@ -8,14 +8,20 @@ export default class Quote {
     extendObservable(this, json)
   }
 
-  upvote(id) {
-    fetch(`${API}/quotes/${id}/upvote`, { method: 'POST' })
+  upvote() {
+    fetch(`${API}/quotes/${this.id}/upvote`, { method: 'POST' })
     this.score++
   }
 
-  static create(json) {
-    if (!store.quotes.has(json.id))
-      store.quotes.set(json.id, new Quote(json))
-    return store.quotes.get(json.id)
+  static createOrUpdate(json) {
+    if (!store.quotes.has(json.id)) {
+      const created = new Quote(json)
+      store.quotes.set(json.id, created)
+      return created
+    } else {
+      const existing = store.quotes.get(json.id)
+      Object.assign(existing, json)
+      return existing
+    }
   }
 }

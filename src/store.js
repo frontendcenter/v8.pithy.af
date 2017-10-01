@@ -15,7 +15,7 @@ export const getQuotesForEndpoint = endpoint => {
     fetch(`${API}/${endpoint}`)
       .then(response => response.json())
       .then(json => {
-        store.quotes_by_endpoint.set(endpoint, json.map(Quote.create))
+        store.quotes_by_endpoint.set(endpoint, json.map(Quote.createOrUpdate))
       }, () => {
         store.error = true
       })
@@ -28,7 +28,7 @@ export const getQuoteById = id => {
     store.quotes.set(id, null)
     fetch(`${API}/quotes/${id}`)
       .then(response => response.json())
-      .then(Quote.create, () => {
+      .then(Quote.createOrUpdate, () => {
         store.error = true
       })
   }
